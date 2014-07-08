@@ -1,0 +1,49 @@
+
+<div class="page-header">
+    <h1>Need To Do!</h1>
+
+    <p>simple introduction level angular project</p>
+</div>
+
+<form class="form-inline">
+
+    <div class="form-group">
+        <label for="taskTitle">Task Title</label>
+        <input type="text" class="form-control" id="taskTitle" placeholder="title..." ng-model="todo.title">
+    </div>
+
+    <div class="form-group">
+        <label for="taskDesc">Description</label>
+        <input class="form-control" id="taskDesc" placeholder="description.." ng-model="todo.desc">
+    </div>
+
+    <div class="form-group">
+        <button class="form-control btn btn-primary" ng-click="add(todo)" >Add</button>
+    </div>
+</form>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>done</th>
+        <th>title</th>
+        <th>description</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="todo in todoList">
+        <td><input class="input" type="checkbox" ng-model="todo.checked"/></td>
+        <td ng-class="{linet : todo.checked}">{{todo.title}}</td>
+        <td ng-class="{linet : todo.checked}">{{todo.desc}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="remove(todo)"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-info" ng-click="edit(todo)"><span class="glyphicon glyphicon-edit"></span></button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</div>
