@@ -11,9 +11,13 @@ angular.module('todolistApp')
   .controller('MainCtrl', function ($scope) {
     $scope.todoList= [];
     $scope.add = function(todo){
-        var newTodo={};
-        angular.copy (todo,newTodo);
-        $scope.todoList.push (newTodo);
+
+        console.log (todo);
+        if (typeof todo.$$hashKey === 'undefined') {
+            var newTodo={};
+            angular.copy (todo,newTodo);
+            $scope.todoList.push (newTodo); 
+        }   
         $scope.todo ={};
     };
     $scope.remove = function(todo) {
